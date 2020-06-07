@@ -1343,9 +1343,10 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `customer_list` (`first_name`, `last_name`, `age`, `date_of_birth`, `"& _ 
-                "debt`, `cell_number`, `land_line`, `email`, `address`, `comment`) VALUES (@p1, @"& _ 
-                "p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO   customer_list"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       (first_name, last_name, age, "& _ 
+                "date_of_birth, debt, cell_number, land_line, email, address, comment)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES   "& _ 
+                "        (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT last_insert"& _ 
+                "_id() AS 'id'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           customer_list;"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
