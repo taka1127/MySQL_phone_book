@@ -148,5 +148,20 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_butt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_butt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_butt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_butt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_butt.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
