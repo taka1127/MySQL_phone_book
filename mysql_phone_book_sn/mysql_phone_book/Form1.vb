@@ -68,26 +68,41 @@
     End Sub
 
     Private Sub new_butt_Click(sender As Object, e As EventArgs) Handles new_butt.Click
-        new_edit_delete_butt()
+        new_edit_delete_butt("new_butt")
         '------------------------add new record--------------
         Me.Customer_listBindingSource.AddNew()
         '----------------------------------------------------
     End Sub
 
     Private Sub edit_butt_Click(sender As Object, e As EventArgs) Handles edit_butt.Click
-        new_edit_delete_butt()
+        '------------------------empty record checker--------------
+        Dim rc As Integer
+        rc = Me.Phone_book_ds.customer_list.Rows.Count
+        If rc = 0 Then
+            MessageBox.Show("編集するレコードを選択してください!")
+            Exit Sub
+        End If
+        '----------------------------------------------------
+        new_edit_delete_butt("edit_butt")
     End Sub
 
     Private Sub delete_butt_Click(sender As Object, e As EventArgs) Handles delete_butt.Click
-        new_edit_delete_butt()
+        '------------------------empty record checker--------------
+        Dim rc As Integer
+        rc = Me.Phone_book_ds.customer_list.Rows.Count
+        If rc = 0 Then
+            MessageBox.Show("削除するレコードを選択してください!")
+            Exit Sub
+        End If
+        '----------------------------------------------------
+        new_edit_delete_butt("delete_butt")
         '------------------------delete record--------------
         Me.Customer_listBindingSource.RemoveCurrent()
-        MessageBox.Show("削除しました")
 
         '----------------------------------------------------
     End Sub
 
-    Sub new_edit_delete_butt()
+    Sub new_edit_delete_butt(butt_name As String)
         Me.new_butt.Enabled = False
         Me.edit_butt.Enabled = False
         Me.delete_butt.Enabled = False
@@ -97,6 +112,12 @@
         '------------------------------------
         Me.Customer_listDataGridView.Enabled = False
         Me.Customer_listBindingNavigator.Enabled = False
+        '------------------------------------
+        If butt_name = "delete_butt" Then
+            Me.GroupBox1.Enabled = False
+        Else
+            Me.GroupBox1.Enabled = True
+        End If
         Me.GroupBox1.Enabled = True
         '------------------------------------
     End Sub
@@ -118,6 +139,10 @@
 
     Private Sub cancel_butt_Click(sender As Object, e As EventArgs) Handles cancel_butt.Click
         save_cancel_butt()
+        '--------------cancel changes----------
+        Me.Phone_book_ds.customer_list.RejectChanges()
+        Me.Customer_listBindingSource.CancelEdit()
+        '------------------------------------
     End Sub
 
     Sub save_cancel_butt()
@@ -135,4 +160,11 @@
         '------------------------------------
     End Sub
 
+    Private Sub Date_of_birthLabel1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Date_of_birthDateTimePicker1_ValueChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

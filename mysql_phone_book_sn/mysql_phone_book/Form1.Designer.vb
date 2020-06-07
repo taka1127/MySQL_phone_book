@@ -419,7 +419,7 @@ Partial Class Form1
         '
         'Date_of_birthDateTimePicker
         '
-        Me.Date_of_birthDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.Customer_listBindingSource, "debt", True))
+        Me.Date_of_birthDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.Customer_listBindingSource, "date_of_birth", True))
         Me.Date_of_birthDateTimePicker.Location = New System.Drawing.Point(353, 156)
         Me.Date_of_birthDateTimePicker.Name = "Date_of_birthDateTimePicker"
         Me.Date_of_birthDateTimePicker.Size = New System.Drawing.Size(200, 28)
@@ -483,7 +483,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Date_of_birthDateTimePicker)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 68)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(791, 395)
+        Me.GroupBox1.Size = New System.Drawing.Size(791, 404)
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
@@ -693,7 +693,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(852, 566)
+        Me.ClientSize = New System.Drawing.Size(852, 659)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Customer_listDataGridView)
