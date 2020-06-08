@@ -26,12 +26,8 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.last_name_search_tb = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.DataSet1 = New phone_book_search.DataSet1()
-        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Customer_listTableAdapter = New phone_book_search.DataSet1TableAdapters.customer_listTableAdapter()
-        Me.TableAdapterManager = New phone_book_search.DataSet1TableAdapters.TableAdapterManager()
         Me.Customer_listBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -49,79 +45,69 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Phone_book_ds = New phone_book_search.Phone_book_ds()
+        Me.Customer_listTableAdapter = New phone_book_search.Phone_book_dsTableAdapters.customer_listTableAdapter()
+        Me.TableAdapterManager = New phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.id_search_tb = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Customer_listBindingNavigator.SuspendLayout()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Controls.Add(Me.id_search_tb)
+        Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.last_name_search_tb)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(509, 81)
+        Me.Panel1.Size = New System.Drawing.Size(440, 83)
         Me.Panel1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(82, 9)
+        Me.Label1.Location = New System.Drawing.Point(79, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 15)
+        Me.Label1.Size = New System.Drawing.Size(75, 12)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "「名前」検索"
+        Me.Label1.Text = "「名前」で検索"
         '
-        'TextBox1
+        'last_name_search_tb
         '
-        Me.TextBox1.Location = New System.Drawing.Point(155, 6)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(148, 21)
-        Me.TextBox1.TabIndex = 1
+        Me.last_name_search_tb.Location = New System.Drawing.Point(166, 10)
+        Me.last_name_search_tb.Name = "last_name_search_tb"
+        Me.last_name_search_tb.Size = New System.Drawing.Size(100, 19)
+        Me.last_name_search_tb.TabIndex = 1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(321, 6)
+        Me.Button1.Location = New System.Drawing.Point(290, 8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "検索"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Customer_listBindingSource
-        '
-        Me.Customer_listBindingSource.DataMember = "customer_list"
-        Me.Customer_listBindingSource.DataSource = Me.DataSet1
-        '
-        'Customer_listTableAdapter
-        '
-        Me.Customer_listTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.customer_listTableAdapter = Me.Customer_listTableAdapter
-        Me.TableAdapterManager.UpdateOrder = phone_book_search.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Customer_listBindingNavigator
         '
@@ -131,14 +117,14 @@ Partial Class Form1
         Me.Customer_listBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.Customer_listBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Customer_listBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Customer_listBindingNavigatorSaveItem})
-        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 341)
+        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 334)
         Me.Customer_listBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Customer_listBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Customer_listBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.Customer_listBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Customer_listBindingNavigator.Name = "Customer_listBindingNavigator"
         Me.Customer_listBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(509, 25)
+        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(440, 25)
         Me.Customer_listBindingNavigator.TabIndex = 1
         Me.Customer_listBindingNavigator.Text = "BindingNavigator1"
         '
@@ -239,17 +225,17 @@ Partial Class Form1
         '
         Me.Customer_listDataGridView.AutoGenerateColumns = False
         Me.Customer_listDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Customer_listDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
+        Me.Customer_listDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.Customer_listDataGridView.DataSource = Me.Customer_listBindingSource
-        Me.Customer_listDataGridView.Location = New System.Drawing.Point(0, 87)
+        Me.Customer_listDataGridView.Location = New System.Drawing.Point(12, 89)
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
         Me.Customer_listDataGridView.RowTemplate.Height = 47
-        Me.Customer_listDataGridView.Size = New System.Drawing.Size(509, 220)
+        Me.Customer_listDataGridView.Size = New System.Drawing.Size(416, 242)
         Me.Customer_listDataGridView.TabIndex = 2
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(418, 341)
+        Me.Button2.Location = New System.Drawing.Point(344, 334)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
@@ -268,23 +254,17 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn2.HeaderText = "苗字"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "last_name"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "名前"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
         'DataGridViewTextBoxColumn3
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "age"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "年齢"
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "last_name"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "名前"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
-        'DataGridViewTextBoxColumn5
+        'DataGridViewTextBoxColumn4
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "date_of_birth"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "生年月日"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "age"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "年齢"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
         'DataGridViewImageColumn1
         '
@@ -292,6 +272,12 @@ Partial Class Form1
         Me.DataGridViewImageColumn1.HeaderText = "customer_image"
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "date_of_birth"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "生年月日"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         '
         'DataGridViewTextBoxColumn6
         '
@@ -329,32 +315,74 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn11.HeaderText = "コメント"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         '
+        'Customer_listBindingSource
+        '
+        Me.Customer_listBindingSource.DataMember = "customer_list"
+        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        '
+        'Phone_book_ds
+        '
+        Me.Phone_book_ds.DataSetName = "Phone_book_ds"
+        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Customer_listTableAdapter
+        '
+        Me.Customer_listTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.customer_listTableAdapter = Me.Customer_listTableAdapter
+        Me.TableAdapterManager.UpdateOrder = phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(290, 33)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "検索"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'id_search_tb
+        '
+        Me.id_search_tb.Location = New System.Drawing.Point(166, 35)
+        Me.id_search_tb.Name = "id_search_tb"
+        Me.id_search_tb.Size = New System.Drawing.Size(100, 19)
+        Me.id_search_tb.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(79, 38)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 12)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "「顧客ID」で検索"
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(509, 366)
+        Me.ClientSize = New System.Drawing.Size(440, 359)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Customer_listDataGridView)
         Me.Controls.Add(Me.Customer_listBindingNavigator)
         Me.Controls.Add(Me.Panel1)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.ShowIcon = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "顧客情報　検索"
+        Me.Text = "顧客　情報検索"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Customer_listBindingNavigator.ResumeLayout(False)
         Me.Customer_listBindingNavigator.PerformLayout()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -362,12 +390,12 @@ Partial Class Form1
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents last_name_search_tb As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents Phone_book_ds As Phone_book_ds
     Friend WithEvents Customer_listBindingSource As BindingSource
-    Friend WithEvents Customer_listTableAdapter As DataSet1TableAdapters.customer_listTableAdapter
-    Friend WithEvents TableAdapterManager As DataSet1TableAdapters.TableAdapterManager
+    Friend WithEvents Customer_listTableAdapter As Phone_book_dsTableAdapters.customer_listTableAdapter
+    Friend WithEvents TableAdapterManager As Phone_book_dsTableAdapters.TableAdapterManager
     Friend WithEvents Customer_listBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -385,14 +413,17 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents Button3 As Button
+    Friend WithEvents id_search_tb As TextBox
+    Friend WithEvents Label2 As Label
 End Class
