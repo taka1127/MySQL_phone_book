@@ -64,17 +64,6 @@ Namespace My
                 Return CType(Me("phone_bookConnectionString"),String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("persistsecurityinfo=True;server=localhost;user id=root;password=taka@07250713;dat"& _ 
-            "abase=phone_book")>  _
-        Public ReadOnly Property phone_bookConnectionString1() As String
-            Get
-                Return CType(Me("phone_bookConnectionString1"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 

@@ -20,9 +20,9 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("phone_book_ds"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DataSet1"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class phone_book_ds
+Partial Public Class DataSet1
     Inherits Global.System.Data.DataSet
     
     Private tablecustomer_list As customer_listDataTable
@@ -128,7 +128,7 @@ Partial Public Class phone_book_ds
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As phone_book_ds = CType(MyBase.Clone,phone_book_ds)
+        Dim cln As DataSet1 = CType(MyBase.Clone,DataSet1)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -199,9 +199,9 @@ Partial Public Class phone_book_ds
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "phone_book_ds"
+        Me.DataSetName = "DataSet1"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/phone_book_ds.xsd"
+        Me.Namespace = "http://tempuri.org/DataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tablecustomer_list = New customer_listDataTable()
@@ -225,7 +225,7 @@ Partial Public Class phone_book_ds
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As phone_book_ds = New phone_book_ds()
+        Dim ds As DataSet1 = New DataSet1()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -287,9 +287,9 @@ Partial Public Class phone_book_ds
         
         Private columnfirst_name As Global.System.Data.DataColumn
         
-        Private columnlast_name As Global.System.Data.DataColumn
-        
         Private columnage As Global.System.Data.DataColumn
+        
+        Private columnlast_name As Global.System.Data.DataColumn
         
         Private columndate_of_birth As Global.System.Data.DataColumn
         
@@ -360,17 +360,17 @@ Partial Public Class phone_book_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property last_nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ageColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnlast_name
+                Return Me.columnage
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ageColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property last_nameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnage
+                Return Me.columnlast_name
             End Get
         End Property
         
@@ -475,9 +475,9 @@ Partial Public Class phone_book_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addcustomer_listRow(ByVal first_name As String, ByVal last_name As String, ByVal age As Short, ByVal date_of_birth As Date, ByVal debt As Decimal, ByVal cell_number As String, ByVal land_line As String, ByVal email As String, ByVal address As String, ByVal comment As String, ByVal customer_image() As Byte) As customer_listRow
+        Public Overloads Function Addcustomer_listRow(ByVal first_name As String, ByVal age As Short, ByVal last_name As String, ByVal date_of_birth As Date, ByVal debt As Decimal, ByVal cell_number As String, ByVal land_line As String, ByVal email As String, ByVal address As String, ByVal comment As String, ByVal customer_image() As Byte) As customer_listRow
             Dim rowcustomer_listRow As customer_listRow = CType(Me.NewRow,customer_listRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, first_name, last_name, age, date_of_birth, debt, cell_number, land_line, email, address, comment, customer_image}
+            Dim columnValuesArray() As Object = New Object() {Nothing, first_name, age, last_name, date_of_birth, debt, cell_number, land_line, email, address, comment, customer_image}
             rowcustomer_listRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcustomer_listRow)
             Return rowcustomer_listRow
@@ -508,8 +508,8 @@ Partial Public Class phone_book_ds
         Friend Sub InitVars()
             Me.columnid = MyBase.Columns("id")
             Me.columnfirst_name = MyBase.Columns("first_name")
-            Me.columnlast_name = MyBase.Columns("last_name")
             Me.columnage = MyBase.Columns("age")
+            Me.columnlast_name = MyBase.Columns("last_name")
             Me.columndate_of_birth = MyBase.Columns("date_of_birth")
             Me.columndebt = MyBase.Columns("debt")
             Me.columncell_number = MyBase.Columns("cell_number")
@@ -527,10 +527,10 @@ Partial Public Class phone_book_ds
             MyBase.Columns.Add(Me.columnid)
             Me.columnfirst_name = New Global.System.Data.DataColumn("first_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfirst_name)
-            Me.columnlast_name = New Global.System.Data.DataColumn("last_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlast_name)
             Me.columnage = New Global.System.Data.DataColumn("age", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnage)
+            Me.columnlast_name = New Global.System.Data.DataColumn("last_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnlast_name)
             Me.columndate_of_birth = New Global.System.Data.DataColumn("date_of_birth", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndate_of_birth)
             Me.columndebt = New Global.System.Data.DataColumn("debt", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -627,7 +627,7 @@ Partial Public Class phone_book_ds
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As phone_book_ds = New phone_book_ds()
+            Dim ds As DataSet1 = New DataSet1()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -732,21 +732,6 @@ Partial Public Class phone_book_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property last_name() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecustomer_list.last_nameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("テーブル 'customer_list' にある列 'last_name' の値は DBNull です。", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecustomer_list.last_nameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property age() As Short
             Get
                 Try 
@@ -757,6 +742,21 @@ Partial Public Class phone_book_ds
             End Get
             Set
                 Me(Me.tablecustomer_list.ageColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property last_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablecustomer_list.last_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'customer_list' にある列 'last_name' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecustomer_list.last_nameColumn) = value
             End Set
         End Property
         
@@ -894,18 +894,6 @@ Partial Public Class phone_book_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islast_nameNull() As Boolean
-            Return Me.IsNull(Me.tablecustomer_list.last_nameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlast_nameNull()
-            Me(Me.tablecustomer_list.last_nameColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsageNull() As Boolean
             Return Me.IsNull(Me.tablecustomer_list.ageColumn)
         End Function
@@ -914,6 +902,18 @@ Partial Public Class phone_book_ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetageNull()
             Me(Me.tablecustomer_list.ageColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Islast_nameNull() As Boolean
+            Return Me.IsNull(Me.tablecustomer_list.last_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setlast_nameNull()
+            Me(Me.tablecustomer_list.last_nameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1050,7 +1050,7 @@ Partial Public Class phone_book_ds
     End Class
 End Class
 
-Namespace phone_book_dsTableAdapters
+Namespace DataSet1TableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1181,8 +1181,8 @@ Namespace phone_book_dsTableAdapters
             tableMapping.DataSetTable = "customer_list"
             tableMapping.ColumnMappings.Add("id", "id")
             tableMapping.ColumnMappings.Add("first_name", "first_name")
-            tableMapping.ColumnMappings.Add("last_name", "last_name")
             tableMapping.ColumnMappings.Add("age", "age")
+            tableMapping.ColumnMappings.Add("last_name", "last_name")
             tableMapping.ColumnMappings.Add("date_of_birth", "date_of_birth")
             tableMapping.ColumnMappings.Add("debt", "debt")
             tableMapping.ColumnMappings.Add("cell_number", "cell_number")
@@ -1195,8 +1195,8 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `customer_list` WHERE ((`id` = @p1) AND ((@p2 = 1 AND `first_name` IS"& _ 
-                " NULL) OR (`first_name` = @p3)) AND ((@p4 = 1 AND `last_name` IS NULL) OR (`last"& _ 
-                "_name` = @p5)) AND ((@p6 = 1 AND `age` IS NULL) OR (`age` = @p7)) AND ((@p8 = 1 "& _ 
+                " NULL) OR (`first_name` = @p3)) AND ((@p4 = 1 AND `age` IS NULL) OR (`age` = @p5"& _ 
+                ")) AND ((@p6 = 1 AND `last_name` IS NULL) OR (`last_name` = @p7)) AND ((@p8 = 1 "& _ 
                 "AND `date_of_birth` IS NULL) OR (`date_of_birth` = @p9)) AND ((@p10 = 1 AND `deb"& _ 
                 "t` IS NULL) OR (`debt` = @p11)) AND ((@p12 = 1 AND `cell_number` IS NULL) OR (`c"& _ 
                 "ell_number` = @p13)) AND ((@p14 = 1 AND `land_line` IS NULL) OR (`land_line` = @"& _ 
@@ -1234,16 +1234,16 @@ Namespace phone_book_dsTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "last_name"
+            param.SourceColumn = "age"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p5"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.Int16
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
             param.IsNullable = true
-            param.SourceColumn = "last_name"
+            param.SourceColumn = "age"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1251,16 +1251,16 @@ Namespace phone_book_dsTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "age"
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p7"
-            param.DbType = Global.System.Data.DbType.Int16
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "age"
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1384,7 +1384,7 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `customer_list` (`first_name`, `last_name`, `age`, `date_of_birth`, `"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `customer_list` (`first_name`, `age`, `last_name`, `date_of_birth`, `"& _ 
                 "debt`, `cell_number`, `land_line`, `email`, `address`, `comment`, `customer_imag"& _ 
                 "e`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
@@ -1398,18 +1398,18 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p2"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "last_name"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p3"
             param.DbType = Global.System.Data.DbType.Int16
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
             param.IsNullable = true
             param.SourceColumn = "age"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1478,12 +1478,12 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `customer_list` SET `first_name` = @p1, `last_name` = @p2, `age` = @p3, `d"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `customer_list` SET `first_name` = @p1, `age` = @p2, `last_name` = @p3, `d"& _ 
                 "ate_of_birth` = @p4, `debt` = @p5, `cell_number` = @p6, `land_line` = @p7, `emai"& _ 
                 "l` = @p8, `address` = @p9, `comment` = @p10, `customer_image` = @p11 WHERE ((`id"& _ 
                 "` = @p12) AND ((@p13 = 1 AND `first_name` IS NULL) OR (`first_name` = @p14)) AND"& _ 
-                " ((@p15 = 1 AND `last_name` IS NULL) OR (`last_name` = @p16)) AND ((@p17 = 1 AND"& _ 
-                " `age` IS NULL) OR (`age` = @p18)) AND ((@p19 = 1 AND `date_of_birth` IS NULL) O"& _ 
+                " ((@p15 = 1 AND `age` IS NULL) OR (`age` = @p16)) AND ((@p17 = 1 AND `last_name`"& _ 
+                " IS NULL) OR (`last_name` = @p18)) AND ((@p19 = 1 AND `date_of_birth` IS NULL) O"& _ 
                 "R (`date_of_birth` = @p20)) AND ((@p21 = 1 AND `debt` IS NULL) OR (`debt` = @p22"& _ 
                 ")) AND ((@p23 = 1 AND `cell_number` IS NULL) OR (`cell_number` = @p24)) AND ((@p"& _ 
                 "25 = 1 AND `land_line` IS NULL) OR (`land_line` = @p26)) AND ((@p27 = 1 AND `ema"& _ 
@@ -1500,18 +1500,18 @@ Namespace phone_book_dsTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p2"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "last_name"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p3"
             param.DbType = Global.System.Data.DbType.Int16
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
             param.IsNullable = true
             param.SourceColumn = "age"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1608,16 +1608,16 @@ Namespace phone_book_dsTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "last_name"
+            param.SourceColumn = "age"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p16"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.Int16
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
             param.IsNullable = true
-            param.SourceColumn = "last_name"
+            param.SourceColumn = "age"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1625,16 +1625,16 @@ Namespace phone_book_dsTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "age"
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p18"
-            param.DbType = Global.System.Data.DbType.Int16
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int16
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "age"
+            param.SourceColumn = "last_name"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -1762,7 +1762,7 @@ Namespace phone_book_dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.phone_book_search.My.MySettings.Default.phone_bookConnectionString1
+            Me._connection.ConnectionString = Global.phone_book_search.My.MySettings.Default.phone_bookConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1771,9 +1771,9 @@ Namespace phone_book_dsTableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT                      id, first_name, last_name, age, date_of_birth, debt, "& _ 
+            Me._commandCollection(0).CommandText = "SELECT                      id, first_name, age, last_name, date_of_birth, debt, "& _ 
                 "cell_number, land_line, email, address, comment, customer_image"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
-                "              customer_list"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY               id"
+                "              customer_list"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1781,7 +1781,7 @@ Namespace phone_book_dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As phone_book_ds.customer_listDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.customer_listDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1793,14 +1793,14 @@ Namespace phone_book_dsTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As phone_book_ds.customer_listDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DataSet1.customer_listDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As phone_book_ds) As Integer
+        Public Overloads Overridable Function Update(ByVal dataSet As DataSet1) As Integer
             Return Me.Adapter.Update(dataSet, "customer_list")
         End Function
         
@@ -1822,7 +1822,7 @@ Namespace phone_book_dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As String, ByVal p5 As String, ByVal p7 As Global.System.Nullable(Of Short), ByVal p9 As Global.System.Nullable(Of Date), ByVal p11 As Global.System.Nullable(Of Decimal), ByVal p13 As String, ByVal p15 As String, ByVal p17 As String, ByVal p19 As String, ByVal p21 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As String, ByVal p5 As Global.System.Nullable(Of Short), ByVal p7 As String, ByVal p9 As Global.System.Nullable(Of Date), ByVal p11 As Global.System.Nullable(Of Decimal), ByVal p13 As String, ByVal p15 As String, ByVal p17 As String, ByVal p19 As String, ByVal p21 As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -1831,19 +1831,19 @@ Namespace phone_book_dsTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(p3,String)
             End If
-            If (p5 Is Nothing) Then
+            If (p5.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(p5.Value,Short)
+            Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(p5,String)
             End If
-            If (p7.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7.Value,Short)
-            Else
+            If (p7 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7,String)
             End If
             If (p9.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
@@ -1913,21 +1913,21 @@ Namespace phone_book_dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As String, ByVal p2 As String, ByVal p3 As Global.System.Nullable(Of Short), ByVal p4 As Global.System.Nullable(Of Date), ByVal p5 As Global.System.Nullable(Of Decimal), ByVal p6 As String, ByVal p7 As String, ByVal p8 As String, ByVal p9 As String, ByVal p10 As String, ByVal p11 As Object) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As String, ByVal p2 As Global.System.Nullable(Of Short), ByVal p3 As String, ByVal p4 As Global.System.Nullable(Of Date), ByVal p5 As Global.System.Nullable(Of Decimal), ByVal p6 As String, ByVal p7 As String, ByVal p8 As String, ByVal p9 As String, ByVal p10 As String, ByVal p11 As Object) As Integer
             If (p1 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1,String)
             End If
-            If (p2 Is Nothing) Then
+            If (p2.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2.Value,Short)
+            Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2,String)
             End If
-            If (p3.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3.Value,Short)
-            Else
+            If (p3 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3,String)
             End If
             If (p4.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4.Value,Date)
@@ -1990,8 +1990,8 @@ Namespace phone_book_dsTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
                     ByVal p1 As String,  _
-                    ByVal p2 As String,  _
-                    ByVal p3 As Global.System.Nullable(Of Short),  _
+                    ByVal p2 As Global.System.Nullable(Of Short),  _
+                    ByVal p3 As String,  _
                     ByVal p4 As Global.System.Nullable(Of Date),  _
                     ByVal p5 As Global.System.Nullable(Of Decimal),  _
                     ByVal p6 As String,  _
@@ -2002,8 +2002,8 @@ Namespace phone_book_dsTableAdapters
                     ByVal p11 As Object,  _
                     ByVal p12 As Integer,  _
                     ByVal p14 As String,  _
-                    ByVal p16 As String,  _
-                    ByVal p18 As Global.System.Nullable(Of Short),  _
+                    ByVal p16 As Global.System.Nullable(Of Short),  _
+                    ByVal p18 As String,  _
                     ByVal p20 As Global.System.Nullable(Of Date),  _
                     ByVal p22 As Global.System.Nullable(Of Decimal),  _
                     ByVal p24 As String,  _
@@ -2016,15 +2016,15 @@ Namespace phone_book_dsTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1,String)
             End If
-            If (p2 Is Nothing) Then
+            If (p2.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(p2.Value,Short)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(p2,String)
             End If
-            If (p3.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3.Value,Short)
-            Else
+            If (p3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3,String)
             End If
             If (p4.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p4.Value,Date)
@@ -2074,19 +2074,19 @@ Namespace phone_book_dsTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,String)
             End If
-            If (p16 Is Nothing) Then
+            If (p16.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16.Value,Short)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16,String)
             End If
-            If (p18.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Short)
-            Else
+            If (p18 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18,String)
             End If
             If (p20.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
@@ -2245,7 +2245,7 @@ Namespace phone_book_dsTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As phone_book_ds, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DataSet1, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._customer_listTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.customer_list.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
@@ -2264,7 +2264,7 @@ Namespace phone_book_dsTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As phone_book_ds, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DataSet1, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._customer_listTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.customer_list.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
@@ -2282,7 +2282,7 @@ Namespace phone_book_dsTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As phone_book_ds, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DataSet1, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._customer_listTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.customer_list.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
@@ -2326,7 +2326,7 @@ Namespace phone_book_dsTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As phone_book_ds) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DataSet1) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
