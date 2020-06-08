@@ -1,14 +1,9 @@
 ﻿Public Class Form1
-    Private Sub Customer_listBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles Customer_listBindingNavigatorSaveItem.Click
-        Me.Validate()
-        Me.Customer_listBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.Phone_book_ds)
 
-    End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'Phone_book_ds.customer_list' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Customer_listTableAdapter.Fill(Me.Phone_book_ds.customer_list)
+        Me.Customer_listTableAdapter.Fill_all(Me.Phone_book_ds.customer_list)
         '------------------------------------
         Me.save_butt.Enabled = False
         Me.cancel_butt.Enabled = False
@@ -36,10 +31,6 @@
     End Sub
 
     Private Sub Date_of_birthDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles Date_of_birthDateTimePicker.ValueChanged
-
-    End Sub
-
-    Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
 
     End Sub
 
@@ -71,7 +62,8 @@
         new_edit_delete_butt("new_butt")
         '------------------------add new record--------------
         Me.Customer_listBindingSource.AddNew()
-        '----------------------------------------------------
+        '------------------------新規作成時のNo Imageの画像を追加-------------
+        Me.cu_image_pictureBox1.Image = mysql_phone_book.My.Resources.NO_IMAGE1
     End Sub
 
     Private Sub edit_butt_Click(sender As Object, e As EventArgs) Handles edit_butt.Click
@@ -166,5 +158,36 @@
 
     Private Sub Date_of_birthDateTimePicker1_ValueChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        Me.Customer_listTableAdapter.FillBy_p_info(Me.Phone_book_ds.customer_list)
+    End Sub
+
+    Private Sub Last_nameTextBox_TextChanged(sender As Object, e As EventArgs) Handles Last_nameTextBox.TextChanged
+
+    End Sub
+
+    Private Sub CommentLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub First_nameTextBox_TextChanged(sender As Object, e As EventArgs) Handles First_nameTextBox.TextChanged
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles cu_image_pictureBox1.Click
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.OpenFileDialog1.ShowDialog()
+        Dim fn As String
+        fn = Me.OpenFileDialog1.FileName
+        If fn = "OpenFileDialog1" Then
+            Exit Sub
+        End If
+        '---------load image-------------
+        Me.cu_image_pictureBox1.Image = Image.FromFile(fn)
     End Sub
 End Class

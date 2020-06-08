@@ -109,6 +109,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>phone_book_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Data_Set\phone_book_ds.vb">
+      <DependentUpon>phone_book_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +197,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cat03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NO-IMAGE.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
