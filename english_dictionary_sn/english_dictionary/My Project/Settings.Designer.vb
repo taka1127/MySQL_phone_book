@@ -64,6 +64,30 @@ Namespace My
                 Return CType(Me("entriesConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Welcome")>  _
+        Public Property last_search_word() As String
+            Get
+                Return CType(Me("last_search_word"),String)
+            End Get
+            Set
+                Me("last_search_word") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property auto_load_last_word() As Boolean
+            Get
+                Return CType(Me("auto_load_last_word"),Boolean)
+            End Get
+            Set
+                Me("auto_load_last_word") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -24,12 +24,14 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.auto_load_checkBox2 = New System.Windows.Forms.CheckBox()
+        Me.auto_search_checkBox1 = New System.Windows.Forms.CheckBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.search_textBox1 = New System.Windows.Forms.TextBox()
+        Me.search_type_comboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.En_dic_tableBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
@@ -48,17 +50,16 @@ Partial Class Form1
         Me.En_dic_tableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.En_dic_tableDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.En_dic_tableTableAdapter = New english_dictionary.en_dic_dsTableAdapters.en_dic_tableTableAdapter()
         Me.TableAdapterManager = New english_dictionary.en_dic_dsTableAdapters.TableAdapterManager()
         Me.progress_Panel2 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.plog_label_Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.EndictableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.En_dic_tableBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.En_dic_tableBindingNavigator.SuspendLayout()
@@ -72,11 +73,11 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.CheckBox2)
-        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.auto_load_checkBox2)
+        Me.Panel1.Controls.Add(Me.auto_search_checkBox1)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.search_textBox1)
+        Me.Panel1.Controls.Add(Me.search_type_comboBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -84,25 +85,25 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(539, 82)
         Me.Panel1.TabIndex = 0
         '
-        'CheckBox2
+        'auto_load_checkBox2
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(309, 60)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(131, 16)
-        Me.CheckBox2.TabIndex = 5
-        Me.CheckBox2.Text = "Auto Load Last Word"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.auto_load_checkBox2.AutoSize = True
+        Me.auto_load_checkBox2.Location = New System.Drawing.Point(309, 60)
+        Me.auto_load_checkBox2.Name = "auto_load_checkBox2"
+        Me.auto_load_checkBox2.Size = New System.Drawing.Size(94, 16)
+        Me.auto_load_checkBox2.TabIndex = 5
+        Me.auto_load_checkBox2.Text = "自動読み込み"
+        Me.auto_load_checkBox2.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'auto_search_checkBox1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(131, 60)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(136, 16)
-        Me.CheckBox1.TabIndex = 4
-        Me.CheckBox1.Text = "Auto Search the Word"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.auto_search_checkBox1.AutoSize = True
+        Me.auto_search_checkBox1.Location = New System.Drawing.Point(131, 60)
+        Me.auto_search_checkBox1.Name = "auto_search_checkBox1"
+        Me.auto_search_checkBox1.Size = New System.Drawing.Size(72, 16)
+        Me.auto_search_checkBox1.TabIndex = 4
+        Me.auto_search_checkBox1.Text = "自動検索"
+        Me.auto_search_checkBox1.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -116,22 +117,22 @@ Partial Class Form1
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'search_textBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(258, 23)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(123, 19)
-        Me.TextBox1.TabIndex = 2
+        Me.search_textBox1.Location = New System.Drawing.Point(258, 23)
+        Me.search_textBox1.Name = "search_textBox1"
+        Me.search_textBox1.Size = New System.Drawing.Size(123, 19)
+        Me.search_textBox1.TabIndex = 2
         '
-        'ComboBox1
+        'search_type_comboBox1
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"=", "Starts with", "Ends with", "Every where"})
-        Me.ComboBox1.Location = New System.Drawing.Point(131, 22)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox1.TabIndex = 1
+        Me.search_type_comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.search_type_comboBox1.FormattingEnabled = True
+        Me.search_type_comboBox1.Items.AddRange(New Object() {"=", "Starts with", "Ends with", "Every where"})
+        Me.search_type_comboBox1.Location = New System.Drawing.Point(131, 22)
+        Me.search_type_comboBox1.Name = "search_type_comboBox1"
+        Me.search_type_comboBox1.Size = New System.Drawing.Size(121, 20)
+        Me.search_type_comboBox1.TabIndex = 1
         '
         'Label1
         '
@@ -279,39 +280,27 @@ Partial Class Form1
         '
         'En_dic_tableDataGridView
         '
+        Me.En_dic_tableDataGridView.AllowUserToAddRows = False
+        Me.En_dic_tableDataGridView.AllowUserToDeleteRows = False
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.En_dic_tableDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.En_dic_tableDataGridView.AutoGenerateColumns = False
+        Me.En_dic_tableDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.En_dic_tableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.En_dic_tableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.En_dic_tableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.En_dic_tableDataGridView.DataSource = Me.En_dic_tableBindingSource
         Me.En_dic_tableDataGridView.Location = New System.Drawing.Point(4, 88)
         Me.En_dic_tableDataGridView.Name = "En_dic_tableDataGridView"
+        Me.En_dic_tableDataGridView.ReadOnly = True
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Linen
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.En_dic_tableDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.En_dic_tableDataGridView.RowTemplate.Height = 21
         Me.En_dic_tableDataGridView.Size = New System.Drawing.Size(531, 261)
         Me.En_dic_tableDataGridView.TabIndex = 2
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "word"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "word"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "wordtype"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "wordtype"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "definition"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "definition"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
         'En_dic_tableTableAdapter
         '
@@ -326,7 +315,8 @@ Partial Class Form1
         'progress_Panel2
         '
         Me.progress_Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.progress_Panel2.Controls.Add(Me.Label3)
+        Me.progress_Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.progress_Panel2.Controls.Add(Me.plog_label_Label3)
         Me.progress_Panel2.Controls.Add(Me.Label2)
         Me.progress_Panel2.Location = New System.Drawing.Point(165, 153)
         Me.progress_Panel2.Name = "progress_Panel2"
@@ -334,16 +324,16 @@ Partial Class Form1
         Me.progress_Panel2.TabIndex = 3
         Me.progress_Panel2.Visible = False
         '
-        'Label3
+        'plog_label_Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Blue
-        Me.Label3.Location = New System.Drawing.Point(41, 54)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 16)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Loading Data..."
+        Me.plog_label_Label3.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.plog_label_Label3.ForeColor = System.Drawing.Color.Blue
+        Me.plog_label_Label3.Location = New System.Drawing.Point(-1, 54)
+        Me.plog_label_Label3.Name = "plog_label_Label3"
+        Me.plog_label_Label3.Size = New System.Drawing.Size(200, 24)
+        Me.plog_label_Label3.TabIndex = 1
+        Me.plog_label_Label3.Text = "Loading Data..."
+        Me.plog_label_Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
@@ -373,6 +363,30 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(531, 175)
         Me.TextBox2.TabIndex = 4
         '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "word"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Word"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 120
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "wordtype"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Wordtype"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 120
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "definition"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Definition"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -388,7 +402,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "KSG English Dictionary"
+        Me.Text = "KSG English Dictionary(英字辞典)"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.En_dic_tableBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -407,11 +421,11 @@ Partial Class Form1
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents search_textBox1 As TextBox
+    Friend WithEvents search_type_comboBox1 As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents auto_load_checkBox2 As CheckBox
+    Friend WithEvents auto_search_checkBox1 As CheckBox
     Friend WithEvents En_dic_ds As en_dic_ds
     Friend WithEvents En_dic_tableBindingSource As BindingSource
     Friend WithEvents En_dic_tableTableAdapter As en_dic_dsTableAdapters.en_dic_tableTableAdapter
@@ -430,14 +444,13 @@ Partial Class Form1
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents En_dic_tableBindingNavigatorSaveItem As ToolStripButton
     Friend WithEvents En_dic_tableDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents progress_Panel2 As Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents plog_label_Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents EndictableBindingSource As BindingSource
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class

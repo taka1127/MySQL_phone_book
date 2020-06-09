@@ -10,5 +10,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;user id=root;password=taka@07250713;persistsecurityinfo=True;database=entries</Value>
     </Setting>
+    <Setting Name="last_search_word" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Welcome</Value>
+    </Setting>
+    <Setting Name="auto_load_last_word" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
