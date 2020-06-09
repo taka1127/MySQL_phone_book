@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class search_form
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
@@ -23,14 +23,25 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.id_search_tb = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(search_form))
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.search_type_cbox = New System.Windows.Forms.ComboBox()
+        Me.search_item_cbox = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.last_name_search_tb = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.and_Label2 = New System.Windows.Forms.Label()
+        Me.second_value_tb = New System.Windows.Forms.TextBox()
+        Me.first_value_tb = New System.Windows.Forms.TextBox()
+        Me.date_panel2 = New System.Windows.Forms.Panel()
+        Me.to_dateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.from_dateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Phone_book_ds = New phone_book_search.Phone_book_ds()
+        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Customer_listTableAdapter = New phone_book_search.Phone_book_dsTableAdapters.customer_listTableAdapter()
+        Me.TableAdapterManager = New phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager()
         Me.Customer_listBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -45,12 +56,6 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Customer_listBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Customer_listDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.from_dateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.to_dateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,85 +68,173 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Phone_book_ds = New phone_book_search.Phone_book_ds()
-        Me.Customer_listTableAdapter = New phone_book_search.Phone_book_dsTableAdapters.customer_listTableAdapter()
-        Me.TableAdapterManager = New phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.date_panel2.SuspendLayout()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Customer_listBindingNavigator.SuspendLayout()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'GroupBox1
         '
-        Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.to_dateTimePicker2)
-        Me.Panel1.Controls.Add(Me.from_dateTimePicker1)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.id_search_tb)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.last_name_search_tb)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(496, 126)
-        Me.Panel1.TabIndex = 0
+        Me.GroupBox1.Controls.Add(Me.search_type_cbox)
+        Me.GroupBox1.Controls.Add(Me.search_item_cbox)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Panel1)
+        Me.GroupBox1.Controls.Add(Me.date_panel2)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(546, 182)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "検索データ"
         '
-        'Button3
+        'search_type_cbox
         '
-        Me.Button3.Location = New System.Drawing.Point(298, 35)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "検索"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.search_type_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.search_type_cbox.FormattingEnabled = True
+        Me.search_type_cbox.Items.AddRange(New Object() {"＝", "始まりが該当(Start With)", "末尾が該当(End With)", "いずれかに該当(Every Where)", "Between", "以外(Not Equal)"})
+        Me.search_type_cbox.Location = New System.Drawing.Point(208, 32)
+        Me.search_type_cbox.Name = "search_type_cbox"
+        Me.search_type_cbox.Size = New System.Drawing.Size(121, 23)
+        Me.search_type_cbox.TabIndex = 3
         '
-        'id_search_tb
+        'search_item_cbox
         '
-        Me.id_search_tb.Location = New System.Drawing.Point(166, 35)
-        Me.id_search_tb.Name = "id_search_tb"
-        Me.id_search_tb.Size = New System.Drawing.Size(126, 19)
-        Me.id_search_tb.TabIndex = 4
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(74, 38)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 12)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "「顧客ID」で検索"
+        Me.search_item_cbox.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.search_item_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.search_item_cbox.FormattingEnabled = True
+        Me.search_item_cbox.Items.AddRange(New Object() {"名前", "生年月日"})
+        Me.search_item_cbox.Location = New System.Drawing.Point(81, 32)
+        Me.search_item_cbox.Name = "search_item_cbox"
+        Me.search_item_cbox.Size = New System.Drawing.Size(121, 23)
+        Me.search_item_cbox.TabIndex = 2
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(298, 10)
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(21, 136)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
+        Me.Button1.Size = New System.Drawing.Size(134, 31)
+        Me.Button1.TabIndex = 1
         Me.Button1.Text = "検索"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'last_name_search_tb
-        '
-        Me.last_name_search_tb.Location = New System.Drawing.Point(166, 10)
-        Me.last_name_search_tb.Name = "last_name_search_tb"
-        Me.last_name_search_tb.Size = New System.Drawing.Size(126, 19)
-        Me.last_name_search_tb.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(85, 13)
+        Me.Label1.Location = New System.Drawing.Point(18, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 12)
+        Me.Label1.Size = New System.Drawing.Size(55, 15)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "「名前」で検索"
+        Me.Label1.Text = "検索条件"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.and_Label2)
+        Me.Panel1.Controls.Add(Me.second_value_tb)
+        Me.Panel1.Controls.Add(Me.first_value_tb)
+        Me.Panel1.Location = New System.Drawing.Point(335, 20)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(200, 100)
+        Me.Panel1.TabIndex = 4
+        '
+        'and_Label2
+        '
+        Me.and_Label2.AutoSize = True
+        Me.and_Label2.Location = New System.Drawing.Point(76, 42)
+        Me.and_Label2.Name = "and_Label2"
+        Me.and_Label2.Size = New System.Drawing.Size(28, 15)
+        Me.and_Label2.TabIndex = 5
+        Me.and_Label2.Text = "And"
+        Me.and_Label2.Visible = False
+        '
+        'second_value_tb
+        '
+        Me.second_value_tb.Location = New System.Drawing.Point(18, 60)
+        Me.second_value_tb.Name = "second_value_tb"
+        Me.second_value_tb.Size = New System.Drawing.Size(154, 21)
+        Me.second_value_tb.TabIndex = 1
+        Me.second_value_tb.Visible = False
+        '
+        'first_value_tb
+        '
+        Me.first_value_tb.Location = New System.Drawing.Point(18, 12)
+        Me.first_value_tb.Name = "first_value_tb"
+        Me.first_value_tb.Size = New System.Drawing.Size(154, 21)
+        Me.first_value_tb.TabIndex = 0
+        '
+        'date_panel2
+        '
+        Me.date_panel2.Controls.Add(Me.to_dateTimePicker2)
+        Me.date_panel2.Controls.Add(Me.from_dateTimePicker1)
+        Me.date_panel2.Controls.Add(Me.Label3)
+        Me.date_panel2.Controls.Add(Me.Label2)
+        Me.date_panel2.Location = New System.Drawing.Point(208, 20)
+        Me.date_panel2.Name = "date_panel2"
+        Me.date_panel2.Size = New System.Drawing.Size(332, 160)
+        Me.date_panel2.TabIndex = 5
+        '
+        'to_dateTimePicker2
+        '
+        Me.to_dateTimePicker2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.to_dateTimePicker2.Location = New System.Drawing.Point(174, 15)
+        Me.to_dateTimePicker2.Name = "to_dateTimePicker2"
+        Me.to_dateTimePicker2.Size = New System.Drawing.Size(102, 21)
+        Me.to_dateTimePicker2.TabIndex = 4
+        '
+        'from_dateTimePicker1
+        '
+        Me.from_dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.from_dateTimePicker1.Location = New System.Drawing.Point(41, 15)
+        Me.from_dateTimePicker1.Name = "from_dateTimePicker1"
+        Me.from_dateTimePicker1.Size = New System.Drawing.Size(102, 21)
+        Me.from_dateTimePicker1.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(282, 19)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(26, 15)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "まで"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(149, 18)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(19, 15)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "～"
+        '
+        'Phone_book_ds
+        '
+        Me.Phone_book_ds.DataSetName = "Phone_book_ds"
+        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Customer_listBindingSource
+        '
+        Me.Customer_listBindingSource.DataMember = "customer_list"
+        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        '
+        'Customer_listTableAdapter
+        '
+        Me.Customer_listTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.customer_listTableAdapter = Me.Customer_listTableAdapter
+        Me.TableAdapterManager.UpdateOrder = phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Customer_listBindingNavigator
         '
@@ -151,14 +244,14 @@ Partial Class Form1
         Me.Customer_listBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.Customer_listBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Customer_listBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Customer_listBindingNavigatorSaveItem})
-        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 410)
+        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 573)
         Me.Customer_listBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Customer_listBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Customer_listBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.Customer_listBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Customer_listBindingNavigator.Name = "Customer_listBindingNavigator"
         Me.Customer_listBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(496, 25)
+        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(578, 25)
         Me.Customer_listBindingNavigator.TabIndex = 1
         Me.Customer_listBindingNavigator.Text = "BindingNavigator1"
         '
@@ -170,6 +263,7 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
+        Me.BindingNavigatorAddNewItem.Visible = False
         '
         'BindingNavigatorCountItem
         '
@@ -186,6 +280,7 @@ Partial Class Form1
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorDeleteItem.Text = "削除"
+        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -254,102 +349,52 @@ Partial Class Form1
         Me.Customer_listBindingNavigatorSaveItem.Name = "Customer_listBindingNavigatorSaveItem"
         Me.Customer_listBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Customer_listBindingNavigatorSaveItem.Text = "データの保存"
+        Me.Customer_listBindingNavigatorSaveItem.Visible = False
         '
         'Customer_listDataGridView
         '
+        Me.Customer_listDataGridView.AllowUserToAddRows = False
+        Me.Customer_listDataGridView.AllowUserToDeleteRows = False
         Me.Customer_listDataGridView.AutoGenerateColumns = False
         Me.Customer_listDataGridView.BackgroundColor = System.Drawing.SystemColors.Highlight
         Me.Customer_listDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Customer_listDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.Customer_listDataGridView.DataSource = Me.Customer_listBindingSource
-        Me.Customer_listDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Customer_listDataGridView.Location = New System.Drawing.Point(12, 136)
+        Me.Customer_listDataGridView.Location = New System.Drawing.Point(12, 198)
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
-        Me.Customer_listDataGridView.RowTemplate.Height = 35
-        Me.Customer_listDataGridView.Size = New System.Drawing.Size(472, 268)
+        Me.Customer_listDataGridView.ReadOnly = True
+        Me.Customer_listDataGridView.RowTemplate.Height = 40
+        Me.Customer_listDataGridView.Size = New System.Drawing.Size(546, 368)
         Me.Customer_listDataGridView.TabIndex = 2
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(409, 412)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "全表示"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'from_dateTimePicker1
-        '
-        Me.from_dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.from_dateTimePicker1.CustomFormat = "yyyy-MM-dd"
-        Me.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.from_dateTimePicker1.Location = New System.Drawing.Point(166, 62)
-        Me.from_dateTimePicker1.Name = "from_dateTimePicker1"
-        Me.from_dateTimePicker1.Size = New System.Drawing.Size(126, 19)
-        Me.from_dateTimePicker1.TabIndex = 6
-        '
-        'to_dateTimePicker2
-        '
-        Me.to_dateTimePicker2.AllowDrop = True
-        Me.to_dateTimePicker2.CustomFormat = "yyyy-MM-dd"
-        Me.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.to_dateTimePicker2.Location = New System.Drawing.Point(166, 87)
-        Me.to_dateTimePicker2.Name = "to_dateTimePicker2"
-        Me.to_dateTimePicker2.Size = New System.Drawing.Size(126, 19)
-        Me.to_dateTimePicker2.TabIndex = 7
-        Me.to_dateTimePicker2.Value = New Date(2020, 6, 9, 10, 8, 15, 0)
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(61, 67)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 12)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "「生年月日」で検索"
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(298, 60)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 9
-        Me.Button4.Text = "検索"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(315, 412)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "検索フォーム"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
         Me.DataGridViewTextBoxColumn1.HeaderText = "顧客ID"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 65
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 70
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "first_name"
         Me.DataGridViewTextBoxColumn2.HeaderText = "苗字"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "last_name"
         Me.DataGridViewTextBoxColumn3.HeaderText = "名前"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "age"
         Me.DataGridViewTextBoxColumn4.HeaderText = "年齢"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.Width = 60
         '
         'DataGridViewTextBoxColumn5
@@ -357,7 +402,7 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "date_of_birth"
         Me.DataGridViewTextBoxColumn5.HeaderText = "生年月日"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 80
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewImageColumn1
         '
@@ -365,97 +410,108 @@ Partial Class Form1
         Me.DataGridViewImageColumn1.HeaderText = "customer_image"
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "debt"
         Me.DataGridViewTextBoxColumn6.HeaderText = "負債"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "cell_number"
         Me.DataGridViewTextBoxColumn7.HeaderText = "携帯電話"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "land_line"
         Me.DataGridViewTextBoxColumn8.HeaderText = "固定電話"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "email"
         Me.DataGridViewTextBoxColumn9.HeaderText = "メールアドレス"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "address"
         Me.DataGridViewTextBoxColumn10.HeaderText = "住所"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "comment"
         Me.DataGridViewTextBoxColumn11.HeaderText = "コメント"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
-        'Customer_listBindingSource
+        'Button2
         '
-        Me.Customer_listBindingSource.DataMember = "customer_list"
-        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        Me.Button2.Location = New System.Drawing.Point(453, 573)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "全表示"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'Phone_book_ds
+        'search_form
         '
-        Me.Phone_book_ds.DataSetName = "Phone_book_ds"
-        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Customer_listTableAdapter
-        '
-        Me.Customer_listTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.customer_listTableAdapter = Me.Customer_listTableAdapter
-        Me.TableAdapterManager.UpdateOrder = phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'Form1
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(496, 435)
-        Me.Controls.Add(Me.Button5)
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.ClientSize = New System.Drawing.Size(578, 598)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Customer_listDataGridView)
         Me.Controls.Add(Me.Customer_listBindingNavigator)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
-        Me.Name = "Form1"
+        Me.Name = "search_form"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "顧客　情報検索"
+        Me.Text = "検索フォーム"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.date_panel2.ResumeLayout(False)
+        Me.date_panel2.PerformLayout()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Customer_listBindingNavigator.ResumeLayout(False)
         Me.Customer_listBindingNavigator.PerformLayout()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
+    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents and_Label2 As Label
+    Friend WithEvents second_value_tb As TextBox
+    Friend WithEvents first_value_tb As TextBox
+    Friend WithEvents search_type_cbox As ComboBox
+    Friend WithEvents search_item_cbox As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents last_name_search_tb As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents date_panel2 As Panel
+    Friend WithEvents from_dateTimePicker1 As DateTimePicker
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents to_dateTimePicker2 As DateTimePicker
     Friend WithEvents Phone_book_ds As Phone_book_ds
     Friend WithEvents Customer_listBindingSource As BindingSource
     Friend WithEvents Customer_listTableAdapter As Phone_book_dsTableAdapters.customer_listTableAdapter
@@ -474,14 +530,6 @@ Partial Class Form1
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents Customer_listBindingNavigatorSaveItem As ToolStripButton
     Friend WithEvents Customer_listDataGridView As DataGridView
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents id_search_tb As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Label3 As Label
-    Friend WithEvents to_dateTimePicker2 As DateTimePicker
-    Friend WithEvents from_dateTimePicker1 As DateTimePicker
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -494,5 +542,5 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents Button5 As Button
+    Friend WithEvents Button2 As Button
 End Class
