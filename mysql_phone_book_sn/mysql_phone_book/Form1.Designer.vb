@@ -36,6 +36,8 @@ Partial Class Form1
         Dim Cell_numberLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Customer_listBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Phone_book_ds = New mysql_phone_book.phone_book_ds()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -47,6 +49,18 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Customer_listDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.customer_image = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdTextBox = New System.Windows.Forms.TextBox()
         Me.First_nameTextBox = New System.Windows.Forms.TextBox()
         Me.Last_nameTextBox = New System.Windows.Forms.TextBox()
@@ -84,20 +98,6 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem1 = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.customer_image = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Phone_book_ds = New mysql_phone_book.phone_book_ds()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Customer_listTableAdapter = New mysql_phone_book.phone_book_dsTableAdapters.customer_listTableAdapter()
         Me.TableAdapterManager = New mysql_phone_book.phone_book_dsTableAdapters.TableAdapterManager()
         IdLabel = New System.Windows.Forms.Label()
@@ -113,6 +113,8 @@ Partial Class Form1
         Cell_numberLabel = New System.Windows.Forms.Label()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Customer_listBindingNavigator.SuspendLayout()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -120,8 +122,6 @@ Partial Class Form1
         Me.ToolStrip1.SuspendLayout()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdLabel
@@ -247,6 +247,16 @@ Partial Class Form1
         Me.Customer_listBindingNavigator.TabIndex = 0
         Me.Customer_listBindingNavigator.Text = "BindingNavigator1"
         '
+        'Customer_listBindingSource
+        '
+        Me.Customer_listBindingSource.DataMember = "customer_list"
+        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        '
+        'Phone_book_ds
+        '
+        Me.Phone_book_ds.DataSetName = "phone_book_ds"
+        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
@@ -325,8 +335,6 @@ Partial Class Form1
         '
         'Customer_listDataGridView
         '
-        Me.Customer_listDataGridView.AllowUserToAddRows = False
-        Me.Customer_listDataGridView.AllowUserToDeleteRows = False
         Me.Customer_listDataGridView.AllowUserToOrderColumns = True
         Me.Customer_listDataGridView.AllowUserToResizeColumns = False
         Me.Customer_listDataGridView.AllowUserToResizeRows = False
@@ -337,11 +345,107 @@ Partial Class Form1
         Me.Customer_listDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption
         Me.Customer_listDataGridView.Location = New System.Drawing.Point(12, 237)
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
-        Me.Customer_listDataGridView.ReadOnly = True
         Me.Customer_listDataGridView.RowHeadersWidth = 62
         Me.Customer_listDataGridView.RowTemplate.Height = 48
         Me.Customer_listDataGridView.Size = New System.Drawing.Size(873, 197)
         Me.Customer_listDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 150
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "first_name"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "姓"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 150
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "last_name"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "名"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 150
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "age"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "年齢"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 65
+        '
+        'customer_image
+        '
+        Me.customer_image.DataPropertyName = "customer_image"
+        Me.customer_image.HeaderText = "Customer Image"
+        Me.customer_image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.customer_image.MinimumWidth = 8
+        Me.customer_image.Name = "customer_image"
+        Me.customer_image.Width = 150
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "date_of_birth"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "生年月日"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 150
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "debt"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "負債"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.Width = 150
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "cell_number"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "携帯電話"
+        Me.DataGridViewTextBoxColumn7.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 150
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "land_line"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "固定電話"
+        Me.DataGridViewTextBoxColumn8.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Width = 150
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "address"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "住所"
+        Me.DataGridViewTextBoxColumn10.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.Width = 150
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "email"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "メールアドレス"
+        Me.DataGridViewTextBoxColumn9.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 150
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "comment"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "コメント"
+        Me.DataGridViewTextBoxColumn11.MinimumWidth = 8
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.Width = 300
         '
         'IdTextBox
         '
@@ -676,105 +780,6 @@ Partial Class Form1
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         Me.OpenFileDialog1.Filter = "Image Files|*.jpg;*.bmp;*.png"
         '
-        'customer_image
-        '
-        Me.customer_image.DataPropertyName = "customer_image"
-        Me.customer_image.HeaderText = "Customer Image"
-        Me.customer_image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.customer_image.Name = "customer_image"
-        Me.customer_image.ReadOnly = True
-        '
-        'Customer_listBindingSource
-        '
-        Me.Customer_listBindingSource.DataMember = "customer_list"
-        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
-        '
-        'Phone_book_ds
-        '
-        Me.Phone_book_ds.DataSetName = "phone_book_ds"
-        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "first_name"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "姓"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 150
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "last_name"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "名"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "age"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "年齢"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 65
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "date_of_birth"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "生年月日"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "debt"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "負債"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "cell_number"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "携帯電話"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "land_line"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "固定電話"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "address"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "住所"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "email"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "メールアドレス"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "comment"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "コメント"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 300
-        '
         'Customer_listTableAdapter
         '
         Me.Customer_listTableAdapter.ClearBeforeFill = True
@@ -800,7 +805,7 @@ Partial Class Form1
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -808,6 +813,8 @@ Partial Class Form1
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Customer_listBindingNavigator.ResumeLayout(False)
         Me.Customer_listBindingNavigator.PerformLayout()
+        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -818,8 +825,6 @@ Partial Class Form1
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
-        CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
