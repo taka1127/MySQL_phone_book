@@ -236,7 +236,7 @@ Partial Class Form1
         Me.Customer_listBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Customer_listBindingNavigator.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.Customer_listBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.ToolStripButton1})
-        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 444)
+        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 527)
         Me.Customer_listBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Customer_listBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Customer_listBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
@@ -347,7 +347,7 @@ Partial Class Form1
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
         Me.Customer_listDataGridView.RowHeadersWidth = 62
         Me.Customer_listDataGridView.RowTemplate.Height = 48
-        Me.Customer_listDataGridView.Size = New System.Drawing.Size(873, 197)
+        Me.Customer_listDataGridView.Size = New System.Drawing.Size(873, 287)
         Me.Customer_listDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -796,7 +796,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(912, 470)
+        Me.ClientSize = New System.Drawing.Size(912, 553)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox1)

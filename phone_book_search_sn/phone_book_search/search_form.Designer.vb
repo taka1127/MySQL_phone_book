@@ -87,7 +87,7 @@ Partial Class search_form
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Controls.Add(Me.date_panel2)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(32, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(546, 182)
         Me.GroupBox1.TabIndex = 0
@@ -244,14 +244,14 @@ Partial Class search_form
         Me.Customer_listBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.Customer_listBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Customer_listBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Customer_listBindingNavigatorSaveItem})
-        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 573)
+        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 579)
         Me.Customer_listBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Customer_listBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Customer_listBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.Customer_listBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Customer_listBindingNavigator.Name = "Customer_listBindingNavigator"
         Me.Customer_listBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(578, 25)
+        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(606, 25)
         Me.Customer_listBindingNavigator.TabIndex = 1
         Me.Customer_listBindingNavigator.Text = "BindingNavigator1"
         '
@@ -364,7 +364,7 @@ Partial Class search_form
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
         Me.Customer_listDataGridView.ReadOnly = True
         Me.Customer_listDataGridView.RowTemplate.Height = 40
-        Me.Customer_listDataGridView.Size = New System.Drawing.Size(546, 368)
+        Me.Customer_listDataGridView.Size = New System.Drawing.Size(577, 368)
         Me.Customer_listDataGridView.TabIndex = 2
         '
         'DataGridViewTextBoxColumn1
@@ -456,7 +456,7 @@ Partial Class search_form
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(453, 573)
+        Me.Button2.Location = New System.Drawing.Point(472, 579)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 4
@@ -468,7 +468,7 @@ Partial Class search_form
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(578, 598)
+        Me.ClientSize = New System.Drawing.Size(606, 604)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Customer_listDataGridView)
         Me.Controls.Add(Me.Customer_listBindingNavigator)

@@ -25,6 +25,10 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.to_dateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.from_dateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.id_search_tb = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,6 +37,8 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Customer_listBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Phone_book_ds = New phone_book_search.Phone_book_ds()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -45,12 +51,6 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Customer_listBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Customer_listDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.from_dateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.to_dateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,16 +63,16 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Customer_listBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Phone_book_ds = New phone_book_search.Phone_book_ds()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Customer_listTableAdapter = New phone_book_search.Phone_book_dsTableAdapters.customer_listTableAdapter()
         Me.TableAdapterManager = New phone_book_search.Phone_book_dsTableAdapters.TableAdapterManager()
         Me.Panel1.SuspendLayout()
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Customer_listBindingNavigator.SuspendLayout()
-        CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -90,12 +90,51 @@ Partial Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(496, 126)
+        Me.Panel1.Size = New System.Drawing.Size(586, 126)
         Me.Panel1.TabIndex = 0
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(361, 69)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 9
+        Me.Button4.Text = "検索"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(124, 76)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(99, 12)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "「生年月日」で検索"
+        '
+        'to_dateTimePicker2
+        '
+        Me.to_dateTimePicker2.AllowDrop = True
+        Me.to_dateTimePicker2.CustomFormat = "yyyy-MM-dd"
+        Me.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.to_dateTimePicker2.Location = New System.Drawing.Point(229, 96)
+        Me.to_dateTimePicker2.Name = "to_dateTimePicker2"
+        Me.to_dateTimePicker2.Size = New System.Drawing.Size(126, 19)
+        Me.to_dateTimePicker2.TabIndex = 7
+        Me.to_dateTimePicker2.Value = New Date(2020, 6, 9, 10, 8, 15, 0)
+        '
+        'from_dateTimePicker1
+        '
+        Me.from_dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.from_dateTimePicker1.CustomFormat = "yyyy-MM-dd"
+        Me.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.from_dateTimePicker1.Location = New System.Drawing.Point(229, 71)
+        Me.from_dateTimePicker1.Name = "from_dateTimePicker1"
+        Me.from_dateTimePicker1.Size = New System.Drawing.Size(126, 19)
+        Me.from_dateTimePicker1.TabIndex = 6
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(298, 35)
+        Me.Button3.Location = New System.Drawing.Point(361, 44)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 5
@@ -104,7 +143,7 @@ Partial Class Form1
         '
         'id_search_tb
         '
-        Me.id_search_tb.Location = New System.Drawing.Point(166, 35)
+        Me.id_search_tb.Location = New System.Drawing.Point(229, 44)
         Me.id_search_tb.Name = "id_search_tb"
         Me.id_search_tb.Size = New System.Drawing.Size(126, 19)
         Me.id_search_tb.TabIndex = 4
@@ -112,7 +151,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(74, 38)
+        Me.Label2.Location = New System.Drawing.Point(137, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 12)
         Me.Label2.TabIndex = 3
@@ -120,7 +159,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(298, 10)
+        Me.Button1.Location = New System.Drawing.Point(361, 19)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
@@ -129,7 +168,7 @@ Partial Class Form1
         '
         'last_name_search_tb
         '
-        Me.last_name_search_tb.Location = New System.Drawing.Point(166, 10)
+        Me.last_name_search_tb.Location = New System.Drawing.Point(229, 19)
         Me.last_name_search_tb.Name = "last_name_search_tb"
         Me.last_name_search_tb.Size = New System.Drawing.Size(126, 19)
         Me.last_name_search_tb.TabIndex = 1
@@ -137,7 +176,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(85, 13)
+        Me.Label1.Location = New System.Drawing.Point(148, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 12)
         Me.Label1.TabIndex = 0
@@ -151,14 +190,14 @@ Partial Class Form1
         Me.Customer_listBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.Customer_listBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Customer_listBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Customer_listBindingNavigatorSaveItem})
-        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 410)
+        Me.Customer_listBindingNavigator.Location = New System.Drawing.Point(0, 442)
         Me.Customer_listBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Customer_listBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Customer_listBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.Customer_listBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Customer_listBindingNavigator.Name = "Customer_listBindingNavigator"
         Me.Customer_listBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(496, 25)
+        Me.Customer_listBindingNavigator.Size = New System.Drawing.Size(586, 25)
         Me.Customer_listBindingNavigator.TabIndex = 1
         Me.Customer_listBindingNavigator.Text = "BindingNavigator1"
         '
@@ -170,6 +209,16 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
+        '
+        'Customer_listBindingSource
+        '
+        Me.Customer_listBindingSource.DataMember = "customer_list"
+        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        '
+        'Phone_book_ds
+        '
+        Me.Phone_book_ds.DataSetName = "Phone_book_ds"
+        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -263,68 +312,11 @@ Partial Class Form1
         Me.Customer_listDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.Customer_listDataGridView.DataSource = Me.Customer_listBindingSource
         Me.Customer_listDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Customer_listDataGridView.Location = New System.Drawing.Point(12, 136)
+        Me.Customer_listDataGridView.Location = New System.Drawing.Point(25, 132)
         Me.Customer_listDataGridView.Name = "Customer_listDataGridView"
         Me.Customer_listDataGridView.RowTemplate.Height = 35
-        Me.Customer_listDataGridView.Size = New System.Drawing.Size(472, 268)
+        Me.Customer_listDataGridView.Size = New System.Drawing.Size(549, 290)
         Me.Customer_listDataGridView.TabIndex = 2
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(409, 412)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "全表示"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'from_dateTimePicker1
-        '
-        Me.from_dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.from_dateTimePicker1.CustomFormat = "yyyy-MM-dd"
-        Me.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.from_dateTimePicker1.Location = New System.Drawing.Point(166, 62)
-        Me.from_dateTimePicker1.Name = "from_dateTimePicker1"
-        Me.from_dateTimePicker1.Size = New System.Drawing.Size(126, 19)
-        Me.from_dateTimePicker1.TabIndex = 6
-        '
-        'to_dateTimePicker2
-        '
-        Me.to_dateTimePicker2.AllowDrop = True
-        Me.to_dateTimePicker2.CustomFormat = "yyyy-MM-dd"
-        Me.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.to_dateTimePicker2.Location = New System.Drawing.Point(166, 87)
-        Me.to_dateTimePicker2.Name = "to_dateTimePicker2"
-        Me.to_dateTimePicker2.Size = New System.Drawing.Size(126, 19)
-        Me.to_dateTimePicker2.TabIndex = 7
-        Me.to_dateTimePicker2.Value = New Date(2020, 6, 9, 10, 8, 15, 0)
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(61, 67)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 12)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "「生年月日」で検索"
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(298, 60)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 9
-        Me.Button4.Text = "検索"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(315, 412)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "検索フォーム"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -402,15 +394,23 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn11.HeaderText = "コメント"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         '
-        'Customer_listBindingSource
+        'Button2
         '
-        Me.Customer_listBindingSource.DataMember = "customer_list"
-        Me.Customer_listBindingSource.DataSource = Me.Phone_book_ds
+        Me.Button2.Location = New System.Drawing.Point(472, 442)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "全表示"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'Phone_book_ds
+        'Button5
         '
-        Me.Phone_book_ds.DataSetName = "Phone_book_ds"
-        Me.Phone_book_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Button5.Location = New System.Drawing.Point(364, 442)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "検索フォーム"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Customer_listTableAdapter
         '
@@ -427,7 +427,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(496, 435)
+        Me.ClientSize = New System.Drawing.Size(586, 467)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Customer_listDataGridView)
@@ -444,9 +444,9 @@ Partial Class Form1
         CType(Me.Customer_listBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Customer_listBindingNavigator.ResumeLayout(False)
         Me.Customer_listBindingNavigator.PerformLayout()
-        CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Customer_listBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Phone_book_ds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Customer_listDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
